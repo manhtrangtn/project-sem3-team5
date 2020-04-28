@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace T1809E.SEM3.P102_Team05
 {
@@ -11,7 +12,8 @@ namespace T1809E.SEM3.P102_Team05
         {
             // Web API configuration and services
 
-            config.EnableCors();
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
             // Web API routes
             config.MapHttpAttributeRoutes();
 

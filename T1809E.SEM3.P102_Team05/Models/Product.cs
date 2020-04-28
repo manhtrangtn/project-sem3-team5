@@ -23,9 +23,9 @@ namespace T1809E.SEM3.P102_Team05.Models
 
     public enum OrderStatus
     {
-        ACTIVE,
-        DISABLE,
-        OUT_OF_STOCK,
-        DELETED
+        ACTIVE = 0,
+        DISABLE = 1,
+        OUT_OF_STOCK = -1,
+        DELETED = -2
     }
 }
