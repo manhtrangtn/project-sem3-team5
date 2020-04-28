@@ -7,7 +7,7 @@ namespace T1809E.SEM3.P102_Team05.Commons
 {
     public class Constant
     {
-      public const string ClientLocal = "http://localhost:3000";
+      public const string ClientLocal = "*";
 
       public const string AccountName = "projectsem3team05";
 

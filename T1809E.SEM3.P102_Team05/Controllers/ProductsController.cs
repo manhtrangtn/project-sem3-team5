@@ -35,29 +35,14 @@ namespace T1809E.SEM3.P102_Team05.Controllers
         // GET: api/Products
         public IQueryable<Product> GetProducts(string keyword, string sortType, string sortBy, int? pageNumber, int? pageSize)
         {
-          var requireModel = new RequireModelGetAll();
-          if (pageNumber.HasValue && pageSize.HasValue)
+          var requireModel = new RequireModelGetAll()
           {
-            requireModel = new RequireModelGetAll()
-            {
-              keyword = keyword,
-              sortType = sortType,
-              sortBy = sortBy,
-              pageNumber = pageNumber.Value,
-              pageSize = pageSize.Value
-            };
-          }
-          else
-          {
-            requireModel = new RequireModelGetAll()
-            {
-              keyword = keyword,
-              sortType = sortType,
-              sortBy = sortBy,
-              pageNumber = 0,
-              pageSize = 10
-            };
-          }
+            keyword = keyword,
+            sortType = sortType.Equals("desc") ? "desc" : "asc",
+            sortBy = sortBy,
+            pageSize = pageSize.HasValue ? pageSize.Value : 10,
+            pageNumber = pageNumber.HasValue ? pageNumber.Value : 0
+          };
 
           return productService.GetListWithSearchAndPaging(requireModel.keyword,
                 requireModel.sortType, requireModel.sortBy, requireModel.pageNumber, requireModel.pageSize) as IQueryable<Product>;
