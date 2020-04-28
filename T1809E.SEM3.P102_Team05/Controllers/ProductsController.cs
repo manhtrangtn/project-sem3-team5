@@ -33,14 +33,33 @@ namespace T1809E.SEM3.P102_Team05.Controllers
         }
 
         // GET: api/Products
-        public IQueryable<Product> GetProducts(RequireModelGetAll requireModel)
+        public IQueryable<Product> GetProducts(string keyword, string sortType, string sortBy, int? pageNumber, int? pageSize)
         {
-            if(requireModel == null)
+          var requireModel = new RequireModelGetAll();
+          if (pageNumber.HasValue && pageSize.HasValue)
+          {
+            requireModel = new RequireModelGetAll()
             {
-                return productService.GetAll() as IQueryable<Product>;
-            }
+              keyword = keyword,
+              sortType = sortType,
+              sortBy = sortBy,
+              pageNumber = pageNumber.Value,
+              pageSize = pageSize.Value
+            };
+          }
+          else
+          {
+            requireModel = new RequireModelGetAll()
+            {
+              keyword = keyword,
+              sortType = sortType,
+              sortBy = sortBy,
+              pageNumber = 0,
+              pageSize = 10
+            };
+          }
 
-            return productService.GetListWithSearchAndPaging(requireModel.keyword,
+          return productService.GetListWithSearchAndPaging(requireModel.keyword,
                 requireModel.sortType, requireModel.sortBy, requireModel.pageNumber, requireModel.pageSize) as IQueryable<Product>;
         }
 
@@ -97,6 +116,7 @@ namespace T1809E.SEM3.P102_Team05.Controllers
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> PostProduct(Product product)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
