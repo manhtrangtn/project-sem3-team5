@@ -60,11 +60,12 @@ namespace T1809E.SEM3.P102_Team05.Services.Implements
             if (string.IsNullOrEmpty(keyword))
             {
                 products = ProductRepo.GetMultiPaging(ProductRepo
-                    .QueryOrder(null, columnName), sortBy, isAscending, pageNumber, pageSize);
-            }else
+                    .QueryOrder(null, columnName, isAscending), sortBy, pageNumber, pageSize);
+            }
+            else
             {
                 products = ProductRepo.GetMultiPaging(ProductRepo
-                    .QueryOrder(x => x.Name.Contains(keyword), columnName), sortBy, isAscending, pageNumber, pageSize);
+                    .QueryOrder(x => x.Name.Contains(keyword), columnName, isAscending), sortBy, pageNumber, pageSize);
             }
 
             return products;
@@ -84,7 +85,7 @@ namespace T1809E.SEM3.P102_Team05.Services.Implements
 
             if (!string.IsNullOrEmpty(sortBy))
             {
-                if (!sortBy.Equals("name") && sortBy.Equals("price") && !sortBy.Equals("createdDate"))
+                if (!sortBy.Equals("name") && !sortBy.Equals("price") && !sortBy.Equals("createdDate"))
                 {
                     throw new ArgumentException("sortBy invalid!");
                 }

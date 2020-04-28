@@ -17,18 +17,22 @@ namespace T1809E.SEM3.P102_Team05.Repositories
         }
 
 
-        public IQueryable<Product> QueryOrder (Expression<Func<Product, bool>> filter, string columName)
+        public IQueryable<Product> QueryOrder(Expression<Func<Product, bool>> filter, string columName, bool isAscending)
         {
             IQueryable<Product> _resetSet;
 
             _resetSet = filter != null ? db.Set<Product>().Where<Product>(filter).AsQueryable() : db.Set<Product>().AsQueryable();
+
             switch (columName)
             {
-                case "Name": _resetSet = _resetSet.OrderBy(x => x.Name).AsQueryable();
+                case "Name":
+                    _resetSet = isAscending ? _resetSet.OrderBy(x => x.Name).AsQueryable() : _resetSet.OrderByDescending(x => x.Name).AsQueryable();
                     break;
-                case "Price": _resetSet = _resetSet.OrderBy(x => x.Price).AsQueryable();
+                case "Price":
+                    _resetSet = isAscending ? _resetSet.OrderBy(x => x.Price).AsQueryable() : _resetSet.OrderByDescending(x => x.Price).AsQueryable();
                     break;
-                case "CreateAt": _resetSet = _resetSet.OrderBy(x => x.CreateAt).AsQueryable();
+                case "CreateAt":
+                    _resetSet = isAscending ? _resetSet.OrderBy(x => x.CreateAt).AsQueryable() : _resetSet.OrderByDescending(x => x.CreateAt).AsQueryable();
                     break;
             }
             return _resetSet;

@@ -23,6 +23,6 @@ namespace T1809E.SEM3.P102_Team05.Repositories
 
         IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate);
 
-        IEnumerable<T> GetMultiPaging(IQueryable<T> queryOrder, string columnName, bool? isAscending, int index, int size);
+        IEnumerable<T> GetMultiPaging(IQueryable<T> queryOrder, string columnName, int index, int size);
     }
 }
