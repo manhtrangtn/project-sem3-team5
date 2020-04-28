@@ -57,28 +57,16 @@ namespace T1809E.SEM3.P102_Team05.Repositories
         }
 
 
-        public IEnumerable<T> GetMultiPaging(IQueryable<T> queryOrder , string columnName, bool? isAscending, int index, int size)
+        public IEnumerable<T> GetMultiPaging(IQueryable<T> queryOrder, string columnName, int index, int size)
         {
             int skipCount = index * size;
             IQueryable<T> _resetSet;
             _resetSet = queryOrder;
 
-            if(!string.IsNullOrEmpty(columnName) && isAscending != null)
-            {
-                switch(isAscending)
-                {
-                    case true: _resetSet = skipCount == 0 ? _resetSet.Take(size) : _resetSet.Skip(skipCount).Take(size);
-                        break;
-                    case false: _resetSet = skipCount == 0 ? _resetSet.Take(size) : _resetSet.Skip(skipCount).Take(size);
-                        break;
-                }
-            }else
-            {
-                _resetSet = skipCount == 0 ? _resetSet.Take(size) : _resetSet.Skip(skipCount).Take(size);
-            }
+            _resetSet = skipCount == 0 ? _resetSet.Take(size) : _resetSet.Skip(skipCount).Take(size);
 
             return _resetSet.AsQueryable();
         }
-     
+
     }
 }
