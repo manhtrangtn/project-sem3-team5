@@ -7,7 +7,7 @@ using System.Web;
 
 namespace T1809E.SEM3.P102_Team05.Repositories
 {
-    public interface IRepository<T> where T : class
+    public interface ICommonRepository<T> where T : class
     {
         Task<T> FindById(int id);
 

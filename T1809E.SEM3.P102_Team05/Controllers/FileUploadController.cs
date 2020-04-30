@@ -43,5 +43,10 @@ namespace T1809E.SEM3.P102_Team05.Controllers
           return BadRequest(e.Message);
         }
       }
+
+      public async Task<IHttpActionResult> RemoveImages()
+      {
+        return Ok();
+      }
     }
 }

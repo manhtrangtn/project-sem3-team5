@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
@@ -33,7 +34,7 @@ namespace T1809E.SEM3.P102_Team05.Controllers
         }
 
         // GET: api/Products
-        public IQueryable<Product> GetProducts(string keyword, string sortType, string sortBy, int? pageNumber, int? pageSize)
+        public IHttpActionResult GetProducts(string keyword, string sortType, string sortBy, int? pageNumber, int? pageSize)
         {
           var requireModel = new RequireModelGetAll()
           {
@@ -43,9 +44,14 @@ namespace T1809E.SEM3.P102_Team05.Controllers
             pageSize = pageSize.HasValue ? pageSize.Value : 10,
             pageNumber = pageNumber.HasValue ? pageNumber.Value : 0
           };
-
-          return productService.GetListWithSearchAndPaging(requireModel.keyword,
-                requireModel.sortType, requireModel.sortBy, requireModel.pageNumber, requireModel.pageSize) as IQueryable<Product>;
+          int totalItems = productService.GetTotalItem(keyword);
+          var products = productService.GetListWithSearchAndPaging(requireModel.keyword, requireModel.sortType, requireModel.sortBy, requireModel.pageNumber, requireModel.pageSize) as IQueryable<Product>;
+          var reponseModel = new ProductReponseModel()
+          {
+            Products = products,
+            TotalItems = totalItems
+          };
+          return Ok(reponseModel);
         }
 
         // GET: api/Products/5
@@ -106,7 +112,7 @@ namespace T1809E.SEM3.P102_Team05.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            product.CreateAt = DateTime.Now;
             productService.Add(product);
             await db.SaveChangesAsync();
 

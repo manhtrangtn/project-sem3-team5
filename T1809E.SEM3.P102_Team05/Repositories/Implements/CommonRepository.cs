@@ -9,50 +9,50 @@ using T1809E.SEM3.P102_Team05.Data;
 
 namespace T1809E.SEM3.P102_Team05.Repositories
 {
-    public abstract class RepositoryBase<T> : IRepository<T> where T : class
+    public abstract class CommonRepository<T> : ICommonRepository<T> where T : class
     {
-        private AppDatabaseContext db;
-        private IDbSet<T> dbSet;
+        private readonly AppDatabaseContext _db;
+        private readonly IDbSet<T> _dbSet;
 
-        public RepositoryBase(AppDatabaseContext dbContext){
-            this.db = dbContext;
-            dbSet = db.Set<T>();
+        protected CommonRepository(AppDatabaseContext dbContext){
+            this._db = dbContext;
+            _dbSet = _db.Set<T>();
         }
 
         public T Add(T entity)
         {
-            return dbSet.Add(entity);
+            return _dbSet.Add(entity);
         }
 
         public T Delete(T entity)
         {
-            return dbSet.Remove(entity);
+            return _dbSet.Remove(entity);
         }
 
         public T Delete(int id)
         {
-            var entity = dbSet.Find(id);
-            return dbSet.Remove(entity);
+            var entity = _dbSet.Find(id);
+            return _dbSet.Remove(entity);
         }
 
         public void Update(T entity)
         {
-            db.Entry(entity).State = EntityState.Modified;
+            _db.Entry(entity).State = EntityState.Modified;
         }
 
         public IEnumerable<T> GetAll()
         {
-            return db.Set<T>().AsQueryable();
+            return _db.Set<T>().AsQueryable();
         }
 
         public IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate)
         {
-            return db.Set<T>().Where<T>(predicate).AsQueryable<T>();
+            return _db.Set<T>().Where<T>(predicate).AsQueryable<T>();
         }
 
         public async Task<T> FindById(int id)
         {
-            return await db.Set<T>().FindAsync(id);
+            return await _db.Set<T>().FindAsync(id);
 
         }
 
@@ -60,12 +60,11 @@ namespace T1809E.SEM3.P102_Team05.Repositories
         public IEnumerable<T> GetMultiPaging(IQueryable<T> queryOrder, string columnName, int index, int size)
         {
             int skipCount = index * size;
-            IQueryable<T> _resetSet;
-            _resetSet = queryOrder;
+            IQueryable<T> resetSet = queryOrder;
 
-            _resetSet = skipCount == 0 ? _resetSet.Take(size) : _resetSet.Skip(skipCount).Take(size);
+            resetSet = skipCount == 0 ? resetSet.Take(size) : resetSet.Skip(skipCount).Take(size);
 
-            return _resetSet.AsQueryable();
+            return resetSet.AsQueryable();
         }
 
     }

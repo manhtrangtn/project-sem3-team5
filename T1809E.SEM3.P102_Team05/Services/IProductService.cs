@@ -10,6 +10,8 @@ namespace T1809E.SEM3.P102_Team05.Services
     {
         IEnumerable<Product> GetListWithSearchAndPaging(string keyword, string sortType, 
             string sortBy, int pageNumber, int pageSize);
+
+        int GetTotalItem(string keyword);
     }
 
 }
