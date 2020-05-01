@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -17,6 +18,9 @@ namespace T1809E.SEM3.P102_Team05.Models
         public DateTime UpdateAt { get; set; }
         public DateTime DeleteAt { get; set; }
         public int InStock { get; set; }
+        [ForeignKey("OrderDetail")]
+        public string OrderDetailID { get; set; }
+        public virtual OrderDetail OrderDetail { get; set; }
         public OrderStatus Status { get; set; }
 
     }
