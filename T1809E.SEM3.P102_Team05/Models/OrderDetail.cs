@@ -13,9 +13,9 @@ namespace T1809E.SEM3.P102_Team05.Models
         public int Id { get; set; }
         public int ProductId { get; set; }
         public double Price { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
         [ForeignKey("Order")]
-        public string OrderID { get; set; }
+        public int OrderID { get; set; }
         public virtual Order Order { get; set; }
     }
 }

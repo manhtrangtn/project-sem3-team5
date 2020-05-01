@@ -137,121 +137,1561 @@ namespace T1809E.SEM3.P102_Team05.Migrations
             //     InStock = 4,
             //     Status = OrderStatus.ACTIVE
             // });
-            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Orders");
-            context.Orders.AddOrUpdate(new Order()
+            //context.Database.ExecuteSqlCommand("TRUNCATE TABLE Orders");
+            //context.Orders.AddOrUpdate(new Order()
+            //{
+            //    OrderId=1,
+            //    CustomerID=101,
+            //    OrderNumber=2,
+            //    ShippingAddress= "HA NOI",
+            //    Total=100000,
+            //    CreatedAt = DateTime.Parse("2019-01-17"),
+            //    UpdatedAt = DateTime.Parse("2019-01-25"),
+            //    DeletedAt = DateTime.Parse("2019-02-29"),
+            //    OrderStatus11.ACTIVE
+            //},new Order()
+            //{
+            //    OrderId = 2,
+            //    CustomerID = 102,
+            //    OrderNumber = 5,
+            //    ShippingAddress = "Ha Tinh",
+            //    Total = 150000,
+            //    CreatedAt = DateTime.Parse("2019-02-17"),
+            //    UpdatedAt = DateTime.Parse("2019-02-25"),
+            //    DeletedAt = DateTime.Parse("2019-02-29"),
+            //    OrderStatus1.ACTIVE
+            //}, new Order()
+            //{
+            //    OrderId = 3,
+            //    CustomerID = 103,
+            //    OrderNumber = 2,
+            //    ShippingAddress = "Hai Duong",
+            //    Total = 145000,
+            //    CreatedAt = DateTime.Parse("2019-03-13"),
+            //    UpdatedAt = DateTime.Parse("2019-03-25"),
+            //    DeletedAt = DateTime.Parse("2019-04-30"),
+            //    OrderStatus1.DELETED
+            //}, new Order()
+            //{
+            //    OrderId = 4,
+            //    CustomerID = 104,
+            //    OrderNumber = 1,
+            //    ShippingAddress = "Vinh Phuc",
+            //    Total = 100000,
+            //    CreatedAt = DateTime.Parse("2019-04-17"),
+            //    UpdatedAt = DateTime.Parse("2019-04-25"),
+            //    DeletedAt = DateTime.Parse("2019-05-30"),
+            //    OrderStatus1.ACTIVE
+            //}, new Order()
+            //{
+            //    OrderId = 5,
+            //    CustomerID = 105,
+            //    OrderNumber = 5,
+            //    ShippingAddress = "Ninh Binh",
+            //    Total = 1400000,
+            //    CreatedAt = DateTime.Parse("2019-05-17"),
+            //    UpdatedAt = DateTime.Parse("2019-05-25"),
+            //    DeletedAt = DateTime.Parse("2019-06-30"),
+            //    OrderStatus1.ACTIVE
+            //}, new Order()
+            //{
+            //    OrderId = 6,
+            //    CustomerID = 106,
+            //    OrderNumber = 7,
+            //    ShippingAddress = "Long An",
+            //    Total = 1500000,
+            //    CreatedAt = DateTime.Parse("2019-06-17"),
+            //    UpdatedAt = DateTime.Parse("2019-06-25"),
+            //    DeletedAt = DateTime.Parse("2019-07-30"),
+            //    OrderStatus1.DISABLE
+            //}, new Order()
+            //{
+            //    OrderId = 7,
+            //    CustomerID = 107,
+            //    OrderNumber = 4,
+            //    ShippingAddress = "Ha Long",
+            //    Total = 100000,
+            //    CreatedAt = DateTime.Parse("2019-07-17"),
+            //    UpdatedAt = DateTime.Parse("2019-07-25"),
+            //    DeletedAt = DateTime.Parse("2019-08-30"),
+            //    OrderStatus1.ACTIVE
+            //}, new Order()
+            //{
+            //    OrderId = 8,
+            //    CustomerID = 108,
+            //    OrderNumber = 5,
+            //    ShippingAddress = "HA NOI",
+            //    Total = 760000,
+            //    CreatedAt = DateTime.Parse("2019-08-17"),
+            //    UpdatedAt = DateTime.Parse("2019-08-25"),
+            //    DeletedAt = DateTime.Parse("2019-09-30"),
+            //    OrderStatus1.DISABLE
+            //}, new Order()
+            //{
+            //    OrderId = 9,
+            //    CustomerID = 109,
+            //    OrderNumber = 18,
+            //    ShippingAddress = "Hue",
+            //    Total = 1600000,
+            //    CreatedAt = DateTime.Parse("2019-09-17"),
+            //    UpdatedAt = DateTime.Parse("2019-09-25"),
+            //    DeletedAt = DateTime.Parse("2019-10-30"),
+            //    OrderStatus1.ACTIVE
+            //},
+            //new Order()
+            //{
+            //    OrderId = 10,
+            //    CustomerID = 110,
+            //    OrderNumber = 3,
+            //    ShippingAddress = "Sai Gon",
+            //    Total = 900000,
+            //    CreatedAt = DateTime.Parse("2019-01-07"),
+            //    UpdatedAt = DateTime.Parse("2019-01-15"),
+            //    DeletedAt = DateTime.Parse("2019-02-19"),
+            //    OrderStatus1.ACTIVE
+            //});
+            context.Database.ExecuteSqlCommand("TRUNCATE TABLE OrderDetails");
+            context.OrderDetails.AddOrUpdate(new OrderDetail()
             {
-                OrderId=1,
-                CustomerID=101,
-                OrderNumber=2,
-                ShippingAddress= "HA NOI",
-                Total=100000,
-                CreatedAt = DateTime.Parse("2019-01-17"),
-                UpdatedAt = DateTime.Parse("2019-01-25"),
-                DeletedAt = DateTime.Parse("2019-02-29"),
-                OrderStatus11.ACTIVE
-            },new Order()
-            {
-                OrderId = 2,
-                CustomerID = 102,
-                OrderNumber = 5,
-                ShippingAddress = "Ha Tinh",
-                Total = 150000,
-                CreatedAt = DateTime.Parse("2019-02-17"),
-                UpdatedAt = DateTime.Parse("2019-02-25"),
-                DeletedAt = DateTime.Parse("2019-02-29"),
-                OrderStatus1.ACTIVE
-            }, new Order()
-            {
-                OrderId = 3,
-                CustomerID = 103,
-                OrderNumber = 2,
-                ShippingAddress = "Hai Duong",
-                Total = 145000,
-                CreatedAt = DateTime.Parse("2019-03-13"),
-                UpdatedAt = DateTime.Parse("2019-03-25"),
-                DeletedAt = DateTime.Parse("2019-04-30"),
-                OrderStatus1.DELETED
-            }, new Order()
-            {
-                OrderId = 4,
-                CustomerID = 104,
-                OrderNumber = 1,
-                ShippingAddress = "Vinh Phuc",
-                Total = 100000,
-                CreatedAt = DateTime.Parse("2019-04-17"),
-                UpdatedAt = DateTime.Parse("2019-04-25"),
-                DeletedAt = DateTime.Parse("2019-05-30"),
-                OrderStatus1.ACTIVE
-            }, new Order()
-            {
-                OrderId = 5,
-                CustomerID = 105,
-                OrderNumber = 5,
-                ShippingAddress = "Ninh Binh",
-                Total = 1400000,
-                CreatedAt = DateTime.Parse("2019-05-17"),
-                UpdatedAt = DateTime.Parse("2019-05-25"),
-                DeletedAt = DateTime.Parse("2019-06-30"),
-                OrderStatus1.ACTIVE
-            }, new Order()
-            {
-                OrderId = 6,
-                CustomerID = 106,
-                OrderNumber = 7,
-                ShippingAddress = "Long An",
-                Total = 1500000,
-                CreatedAt = DateTime.Parse("2019-06-17"),
-                UpdatedAt = DateTime.Parse("2019-06-25"),
-                DeletedAt = DateTime.Parse("2019-07-30"),
-                OrderStatus1.DISABLE
-            }, new Order()
-            {
-                OrderId = 7,
-                CustomerID = 107,
-                OrderNumber = 4,
-                ShippingAddress = "Ha Long",
-                Total = 100000,
-                CreatedAt = DateTime.Parse("2019-07-17"),
-                UpdatedAt = DateTime.Parse("2019-07-25"),
-                DeletedAt = DateTime.Parse("2019-08-30"),
-                OrderStatus1.ACTIVE
-            }, new Order()
-            {
-                OrderId = 8,
-                CustomerID = 108,
-                OrderNumber = 5,
-                ShippingAddress = "HA NOI",
-                Total = 760000,
-                CreatedAt = DateTime.Parse("2019-08-17"),
-                UpdatedAt = DateTime.Parse("2019-08-25"),
-                DeletedAt = DateTime.Parse("2019-09-30"),
-                OrderStatus1.DISABLE
-            }, new Order()
-            {
-                OrderId = 9,
-                CustomerID = 109,
-                OrderNumber = 18,
-                ShippingAddress = "Hue",
-                Total = 1600000,
-                CreatedAt = DateTime.Parse("2019-09-17"),
-                UpdatedAt = DateTime.Parse("2019-09-25"),
-                DeletedAt = DateTime.Parse("2019-10-30"),
-                OrderStatus1.ACTIVE
+                Id = 1,
+                OrderID=1,
+                ProductId=101,
+                Price=20000,
+                Quantity=2,
             },
-            new Order()
+            new OrderDetail()
             {
-                OrderId = 10,
-                CustomerID = 110,
-                OrderNumber = 3,
-                ShippingAddress = "Sai Gon",
-                Total = 900000,
-                CreatedAt = DateTime.Parse("2019-01-07"),
-                UpdatedAt = DateTime.Parse("2019-01-15"),
-                DeletedAt = DateTime.Parse("2019-02-19"),
-                OrderStatus1.ACTIVE
+                Id = 2,
+                OrderID = 2,
+                ProductId = 101,
+                Price = 20000,
+                Quantity = 2,
+            },
+            new OrderDetail()
+            {
+                Id = 3,
+                OrderID = 3,
+                ProductId = 101,
+                Price = 20000,
+                Quantity = 2,
+            },
+            new OrderDetail()
+            {
+                Id = 4,
+                OrderID = 4,
+                ProductId = 102,
+                Price = 303000,
+                Quantity = 5,
+            },
+            new OrderDetail()
+            {
+                Id = 5,
+                OrderID = 5,
+                ProductId = 102,
+                Price = 303000,
+                Quantity = 5,
+            },
+            new OrderDetail()
+            {
+                Id = 6,
+                OrderID = 6,
+                ProductId = 102,
+                Price = 303000,
+                Quantity = 5,
+            },
+            new OrderDetail()
+            {
+                Id = 7,
+                OrderID = 7,
+                ProductId = 102,
+                Price = 303000,
+                Quantity = 5,
+            },
+            new OrderDetail()
+            {
+                Id = 8,
+                OrderID = 8,
+                ProductId = 102,
+                Price = 303000,
+                Quantity = 5,
+            },
+            new OrderDetail()
+            {
+                Id = 9,
+                OrderID = 9,
+                ProductId = 103,
+                Price = 13000,
+                Quantity = 1,
+            },
+            new OrderDetail()
+            {
+                Id = 10,
+                OrderID = 10,
+                ProductId = 103,
+                Price = 13000,
+                Quantity = 1,
+            },
+            new OrderDetail()
+            {
+                Id = 11,
+                OrderID = 11,
+                ProductId = 103,
+                Price = 13000,
+                Quantity = 1,
+            },
+            new OrderDetail()
+            {
+                Id = 12,
+                OrderID = 12,
+                ProductId = 103,
+                Price = 13000,
+                Quantity = 1,
+            },
+            new OrderDetail()
+            {
+                Id = 13,
+                OrderID = 13,
+                ProductId = 103,
+                Price = 13000,
+                Quantity = 1,
+            },
+            new OrderDetail()
+            {
+                Id = 14,
+                OrderID = 14,
+                ProductId = 103,
+                Price = 13000,
+                Quantity = 1,
+            },
+            new OrderDetail()
+            {
+                Id = 15,
+                OrderID = 15,
+                ProductId = 104,
+                Price = 250000,
+                Quantity = 10,
+            },
+            new OrderDetail()
+            {
+                Id = 16,
+                OrderID = 16,
+                ProductId = 104,
+                Price = 250000,
+                Quantity = 10,
+            },
+            new OrderDetail()
+            {
+                Id = 17,
+                OrderID = 17,
+                ProductId = 104,
+                Price = 250000,
+                Quantity = 10,
+            },
+            new OrderDetail()
+            {
+                Id = 18,
+                OrderID = 18,
+                ProductId = 104,
+                Price = 250000,
+                Quantity = 10,
+            },
+            new OrderDetail()
+            {
+                Id = 19,
+                OrderID = 19,
+                ProductId = 104,
+                Price = 250000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 20,
+                OrderID = 20,
+                ProductId = 105,
+                Price = 1240000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 21,
+                OrderID = 21,
+                ProductId = 105,
+                Price = 1240000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 22,
+                OrderID = 22,
+                ProductId = 105,
+                Price = 1240000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 23,
+                OrderID = 23,
+                ProductId = 105,
+                Price = 1240000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 24,
+                OrderID = 24,
+                ProductId = 105,
+                Price = 1240000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 25,
+                OrderID = 25,
+                ProductId = 105,
+                Price = 1240000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 26,
+                OrderID = 26,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 27,
+                OrderID = 27,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 28,
+                OrderID = 28,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 29,
+                OrderID = 29,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 30,
+                OrderID = 30,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 31,
+                OrderID = 31,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 32,
+                OrderID = 32,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 33,
+                OrderID = 33,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 34,
+                OrderID = 34,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 35,
+                OrderID = 35,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 36,
+                OrderID = 36,
+                ProductId = 106,
+                Price = 1440000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 37,
+                OrderID = 37,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 38,
+                OrderID = 38,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 39,
+                OrderID = 39,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 40,
+                OrderID = 40,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 41,
+                OrderID = 41,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 42,
+                OrderID = 42,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 43,
+                OrderID = 43,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 44,
+                OrderID = 44,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 45,
+                OrderID = 45,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id = 46,
+                OrderID = 46,
+                ProductId = 107,
+                Price = 1340000,
+                Quantity = 10,
+            }, new OrderDetail()
+            {
+                Id =47,
+                OrderID = 47,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 48,
+                OrderID = 48,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 49,
+                OrderID = 49,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 50,
+                OrderID = 50,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 51,
+                OrderID = 51,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 52,
+                OrderID = 52,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 53,
+                OrderID = 53,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 54,
+                OrderID = 54,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 55,
+                OrderID = 55,
+                ProductId = 108,
+                Price = 1320000,
+                Quantity = 12,
+            }, new OrderDetail()
+            {
+                Id = 56,
+                OrderID = 56,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 57,
+                OrderID = 57,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 58,
+                OrderID = 58,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 59,
+                OrderID = 59,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 60,
+                OrderID = 60,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 61,
+                OrderID = 61,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 62,
+                OrderID = 62,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 63,
+                OrderID = 63,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 64,
+                OrderID = 64,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 65,
+                OrderID = 65,
+                ProductId = 109,
+                Price = 1450000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 66,
+                OrderID = 66,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 67,
+                OrderID = 67,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 68,
+                OrderID = 68,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 69,
+                OrderID = 69,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 70,
+                OrderID = 70,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 71,
+                OrderID = 71,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 72,
+                OrderID = 72,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 73,
+                OrderID = 73,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 74,
+                OrderID = 74,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 75,
+                OrderID = 75,
+                ProductId = 110,
+                Price = 320000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 76,
+                OrderID = 76,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 77,
+                OrderID = 77,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 78,
+                OrderID = 78,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 79,
+                OrderID = 79,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 80,
+                OrderID = 80,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 81,
+                OrderID = 81,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 82,
+                OrderID = 82,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 83,
+                OrderID = 83,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 84,
+                OrderID = 84,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 85,
+                OrderID = 85,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 86,
+                OrderID = 86,
+                ProductId = 111,
+                Price = 1320000,
+                Quantity = 7,
+            }, new OrderDetail()
+            {
+                Id = 87,
+                OrderID = 87,
+                ProductId = 112,
+                Price = 1231000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 88,
+                OrderID = 88,
+                ProductId = 112,
+                Price = 1231000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 89,
+                OrderID = 89,
+                ProductId = 112,
+                Price = 1231000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 90,
+                OrderID = 90,
+                ProductId = 112,
+                Price = 1231000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 91,
+                OrderID = 91,
+                ProductId = 112,
+                Price = 1231000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 92,
+                OrderID = 92,
+                ProductId = 112,
+                Price = 1231000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 93,
+                OrderID = 93,
+                ProductId = 113,
+                Price = 13000,
+                Quantity = 1,
+            }, new OrderDetail()
+            {
+                Id = 94,
+                OrderID = 94,
+                ProductId = 114,
+                Price = 1130000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 95,
+                OrderID = 95,
+                ProductId = 114,
+                Price = 1130000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 96,
+                OrderID = 96,
+                ProductId = 114,
+                Price = 1130000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 97,
+                OrderID = 97,
+                ProductId = 114,
+                Price = 1130000,
+                Quantity = 6,
+            }, new OrderDetail()
+            {
+                Id = 98,
+                OrderID = 98,
+                ProductId = 115,
+                Price = 1321000,
+                Quantity = 9,
+            }, new OrderDetail()
+            {
+                Id = 99,
+                OrderID = 99,
+                ProductId = 115,
+                Price = 1321000,
+                Quantity = 9,
+            }, new OrderDetail()
+            {
+                Id = 100,
+                OrderID = 100,
+                ProductId = 115,
+                Price = 1321000,
+                Quantity = 9,
+            }, new OrderDetail()
+            {
+                Id = 101,
+                OrderID = 100,
+                ProductId = 116,
+                Price = 2230000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 102,
+                OrderID = 100,
+                ProductId = 117,
+                Price = 3023000,
+                Quantity = 14,
+            }, new OrderDetail()
+            {
+                Id = 103,
+                OrderID = 99,
+                ProductId = 118,
+                Price = 83000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 104,
+                OrderID = 98,
+                ProductId = 118,
+                Price = 83000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 105,
+                OrderID = 98,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 106,
+                OrderID = 98,
+                ProductId = 126,
+                Price = 520000,
+                Quantity = 18,
+            }, new OrderDetail()
+            {
+                Id = 107,
+                OrderID = 97,
+                ProductId = 124,
+                Price = 981000,
+                Quantity = 11,
+            }, new OrderDetail()
+            {
+                Id = 108,
+                OrderID = 95,
+                ProductId = 126,
+                Price = 520000,
+                Quantity = 18,
+            }, new OrderDetail()
+            {
+                Id = 109,
+                OrderID = 96,
+                ProductId = 126,
+                Price = 520000,
+                Quantity = 18,
+            }, new OrderDetail()
+            {
+                Id = 110,
+                OrderID = 96,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 111,
+                OrderID = 95,
+                ProductId = 130,
+                Price = 112000,
+                Quantity = 2,
+            }, new OrderDetail()
+            {
+                Id = 112,
+                OrderID = 94,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 113,
+                OrderID = 93,
+                ProductId = 123,
+                Price = 140000,
+                Quantity = 4,
+            }, new OrderDetail()
+            {
+                Id = 114,
+                OrderID = 92,
+                ProductId = 123,
+                Price = 140000,
+                Quantity = 4,
+            }, new OrderDetail()
+            {
+                Id = 115,
+                OrderID = 91,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 116,
+                OrderID = 91,
+                ProductId = 121,
+                Price = 2349900,
+                Quantity = 25,
+            }, new OrderDetail()
+            {
+                Id = 117,
+                OrderID = 90,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19,
+            }, new OrderDetail()
+            {
+                Id = 118,
+                OrderID = 90,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 119,
+                OrderID = 89,
+                ProductId = 128,
+                Price = 1302000,
+                Quantity = 21,
+            }, new OrderDetail()
+            {
+                Id = 120,
+                OrderID = 88,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 121,
+                OrderID = 88,
+                ProductId = 117,
+                Price = 3023000,
+                Quantity = 14,
+            }, new OrderDetail()
+            {
+                Id = 122,
+                OrderID = 88,
+                ProductId = 130,
+                Price = 112000,
+                Quantity = 2,
+            }, new OrderDetail()
+            {
+                Id = 123,
+                OrderID = 85,
+                ProductId = 129,
+                Price = 1090000,
+                Quantity = 24,
+            }, new OrderDetail()
+            {
+                Id = 124,
+                OrderID = 81,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 125,
+                OrderID = 81,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 126,
+                OrderID = 80,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19,
+            }, new OrderDetail()
+            {
+                Id = 127,
+                OrderID = 80,
+                ProductId = 130,
+                Price = 112000,
+                Quantity = 2,
+            }, new OrderDetail()
+            {
+                Id = 128,
+                OrderID = 76,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 129,
+                OrderID = 73,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 130,
+                OrderID = 73,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19,
+            }, new OrderDetail()
+            {
+                Id = 131,
+                OrderID = 73,
+                ProductId = 130,
+                Price = 112000,
+                Quantity = 2,
+            }, new OrderDetail()
+            {
+                Id = 132,
+                OrderID = 70,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 133,
+                OrderID = 70,
+                ProductId = 126,
+                Price = 520000,
+                Quantity = 18,
+            }, new OrderDetail()
+            {
+                Id = 134,
+                OrderID = 68,
+                ProductId = 116,
+                Price = 2230000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 135,
+                OrderID = 67,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19,
+            }, new OrderDetail()
+            {
+                Id = 136,
+                OrderID = 66,
+                ProductId = 121,
+                Price = 2349900,
+                Quantity = 25,
+            }, new OrderDetail()
+            {
+                Id = 137,
+                OrderID = 66,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 138,
+                OrderID = 64,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 139,
+                OrderID = 63,
+                ProductId = 123,
+                Price = 140000,
+                Quantity = 4,
+            }, new OrderDetail()
+            {
+                Id = 140,
+                OrderID = 63,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 141,
+                OrderID = 63,
+                ProductId = 128,
+                Price = 1302000,
+                Quantity = 21,
+            }, new OrderDetail()
+            {
+                Id = 142,
+                OrderID = 60,
+                ProductId = 128,
+                Price = 1302000,
+                Quantity = 21,
+            }, new OrderDetail()
+            {
+                Id = 143,
+                OrderID = 59,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 144,
+                OrderID = 59,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19,
+            }, new OrderDetail()
+            {
+                Id = 145,
+                OrderID = 59,
+                ProductId = 118,
+                Price = 83000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 146,
+                OrderID = 59,
+                ProductId = 130,
+                Price = 112000,
+                Quantity = 2,
+            }, new OrderDetail()
+            {
+                Id = 146,
+                OrderID = 59,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 147,
+                OrderID = 58,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 148,
+                OrderID = 56,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 149,
+                OrderID = 56,
+                ProductId = 121,
+                Price = 2349900,
+                Quantity = 25,
+            }, new OrderDetail()
+            {
+                Id = 150,
+                OrderID = 54,
+                ProductId = 128,
+                Price = 1302000,
+                Quantity = 21,
+            }, new OrderDetail()
+            {
+                Id = 151,
+                OrderID = 53,
+                ProductId = 121,
+                Price = 2349900,
+                Quantity = 25,
+            }, new OrderDetail()
+            {
+                Id = 152,
+                OrderID = 50,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 153,
+                OrderID = 50,
+                ProductId = 118,
+                Price = 83000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 154,
+                OrderID = 50,
+                ProductId = 130,
+                Price = 112000,
+                Quantity = 2,
+            }, new OrderDetail()
+            {
+                Id = 155,
+                OrderID = 50,
+                ProductId = 128,
+                Price = 1302000,
+                Quantity = 21,
+            }, new OrderDetail()
+            {
+                Id = 156,
+                OrderID = 47,
+                ProductId = 116,
+                Price = 2230000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 157,
+                OrderID = 46,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 158,
+                OrderID = 46,
+                ProductId = 124,
+                Price = 981000,
+                Quantity = 11,
+            }, new OrderDetail()
+            {
+                Id = 159,
+                OrderID = 43,
+                ProductId = 118,
+                Price = 83000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 160,
+                OrderID = 42,
+                ProductId = 117,
+                Price = 3023000,
+                Quantity = 14,
+            }, new OrderDetail()
+            {
+                Id = 161,
+                OrderID = 42,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 162,
+                OrderID = 42,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 163,
+                OrderID = 40,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 164,
+                OrderID = 40,
+                ProductId = 123,
+                Price = 140000,
+                Quantity = 4,
+            }, new OrderDetail()
+            {
+                Id = 165,
+                OrderID = 38,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19,
+            }, new OrderDetail()
+            {
+                Id = 166,
+                OrderID = 37,
+                ProductId = 129,
+                Price = 1090000,
+                Quantity = 24,
+            }, new OrderDetail()
+            {
+                Id = 167,
+                OrderID = 34,
+                ProductId = 121,
+                Price = 2349900,
+                Quantity = 25,
+            }, new OrderDetail()
+            {
+                Id = 168,
+                OrderID = 33,
+                ProductId = 124,
+                Price = 981000,
+                Quantity = 11,
+            }, new OrderDetail()
+            {
+                Id = 169,
+                OrderID = 33,
+                ProductId = 118,
+                Price = 83000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 170,
+                OrderID = 33,
+                ProductId = 130,
+                Price = 112000,
+                Quantity = 2,
+            }, new OrderDetail()
+            {
+                Id = 171,
+                OrderID = 33,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 170,
+                OrderID = 31,
+                ProductId = 121,
+                Price = 2349900,
+                Quantity = 25,
+            }, new OrderDetail()
+            {
+                Id = 171,
+                OrderID = 30,
+                ProductId = 116,
+                Price = 2230000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 172,
+                OrderID = 30,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19,
+            }, new OrderDetail()
+            {
+                Id = 173,
+                OrderID = 30,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 174,
+                OrderID = 30,
+                ProductId = 126,
+                Price = 520000,
+                Quantity = 18,
+            }, new OrderDetail()
+            {
+                Id = 175,
+                OrderID = 29,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 176,
+                OrderID = 29,
+                ProductId = 128,
+                Price = 1302000,
+                Quantity = 21,
+            }, new OrderDetail()
+            {
+                Id = 177,
+                OrderID = 26,
+                ProductId = 123,
+                Price = 140000,
+                Quantity = 4,
+            }, new OrderDetail()
+            {
+                Id = 178,
+                OrderID = 25,
+                ProductId = 118,
+                Price = 83000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 179,
+                OrderID = 25,
+                ProductId = 130,
+                Price = 112000,
+                Quantity = 2,
+            }, new OrderDetail()
+            {
+                Id = 180,
+                OrderID = 24,
+                ProductId = 123,
+                Price = 140000,
+                Quantity = 4,
+            }, new OrderDetail()
+            {
+                Id = 181,
+                OrderID = 20,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 182,
+                OrderID = 20,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 183,
+                OrderID = 18,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19,
+            }, new OrderDetail()
+            {
+                Id = 184,
+                OrderID = 17,
+                ProductId = 116,
+                Price = 2230000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 185,
+                OrderID = 17,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 186,
+                OrderID = 16,
+                ProductId = 128,
+                Price = 1302000,
+                Quantity = 21,
+            }, new OrderDetail()
+            {
+                Id = 187,
+                OrderID = 14,
+                ProductId = 125,
+                Price = 4321000,
+                Quantity = 41,
+            }, new OrderDetail()
+            {
+                Id = 188,
+                OrderID = 11,
+                ProductId = 123,
+                Price = 140000,
+                Quantity = 4,
+            }, new OrderDetail()
+            {
+                Id = 189,
+                OrderID = 10,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 190,
+                OrderID = 10,
+                ProductId = 129,
+                Price = 1090000,
+                Quantity = 24,
+            }, new OrderDetail()
+            {
+                Id = 191,
+                OrderID = 10,
+                ProductId = 118,
+                Price = 83000,
+                Quantity = 3,
+            }, new OrderDetail()
+            {
+                Id = 192,
+                OrderID = 7,
+                ProductId = 116,
+                Price = 2230000,
+                Quantity = 13,
+            }, new OrderDetail()
+            {
+                Id = 193,
+                OrderID = 6,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 194,
+                OrderID = 6,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 195,
+                OrderID = 5,
+                ProductId = 122,
+                Price = 540000,
+                Quantity = 8,
+            }, new OrderDetail()
+            {
+                Id = 196,
+                OrderID = 4,
+                ProductId = 119,
+                Price = 1350000,
+                Quantity = 19
+            }, new OrderDetail()
+            {
+                Id = 197,
+                OrderID = 4,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 198,
+                OrderID = 2,
+                ProductId = 124,
+                Price = 981000,
+                Quantity = 11,
+            }, new OrderDetail()
+            {
+                Id = 199,
+                OrderID = 1,
+                ProductId = 120,
+                Price = 1243500,
+                Quantity = 15,
+            }, new OrderDetail()
+            {
+                Id = 200,
+                OrderID = 1,
+                ProductId = 127,
+                Price = 2231000,
+                Quantity = 15,
             });
-            
-            
+
         }
     }
 }
