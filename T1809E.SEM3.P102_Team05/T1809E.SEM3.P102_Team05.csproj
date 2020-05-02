@@ -164,6 +164,10 @@
     <Compile Include="Migrations\202005011639176_UpdateEntities.Designer.cs">
       <DependentUpon>202005011639176_UpdateEntities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005020544277_update_db.cs" />
+    <Compile Include="Migrations\202005020544277_update_db.Designer.cs">
+      <DependentUpon>202005020544277_update_db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\ModelRequires\Image.cs" />
@@ -212,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005011639176_UpdateEntities.resx">
       <DependentUpon>202005011639176_UpdateEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005020544277_update_db.resx">
+      <DependentUpon>202005020544277_update_db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

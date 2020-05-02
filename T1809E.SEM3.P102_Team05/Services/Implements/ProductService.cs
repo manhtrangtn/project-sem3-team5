@@ -12,13 +12,11 @@ namespace T1809E.SEM3.P102_Team05.Services.Implements
     public class ProductService : IProductService
     {
         private readonly ProductRepository _productRepo;
-        private readonly Validator _validator;
         private readonly AppDatabaseContext _db;
 
         public ProductService(ProductRepository repo)
         {
             this._productRepo = repo;
-            this._validator = new Validator();
             this._db = new AppDatabaseContext();
         }
 
@@ -58,7 +56,7 @@ namespace T1809E.SEM3.P102_Team05.Services.Implements
           bool isAscending;
           string columnName;
           IEnumerable<Product> products;
-          _validator.ValidatePageArgs(keyword, sortType, sortBy, pageNumber, pageSize);
+          Validator.ValidatePageArgs(keyword, sortType, sortBy, pageNumber, pageSize);
 
           isAscending = sortType.Equals("asc") ? true : false;
 
