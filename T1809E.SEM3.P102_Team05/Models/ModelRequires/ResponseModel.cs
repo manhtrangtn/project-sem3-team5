@@ -5,9 +5,9 @@ using System.Web;
 
 namespace T1809E.SEM3.P102_Team05.Models.ModelRequires
 {
-    public class ProductReponseModel
+    public class ResponseModel<T>
     {
-      public IQueryable<Product> Products { get; set; }
+      public IQueryable<T> Items { get; set; }
       public int TotalItems { get; set; }
     }
 }

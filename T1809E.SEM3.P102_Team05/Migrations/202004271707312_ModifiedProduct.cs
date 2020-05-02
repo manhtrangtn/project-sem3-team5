@@ -8,7 +8,7 @@ namespace T1809E.SEM3.P102_Team05.Migrations
         public override void Up()
         {
             AddColumn("dbo.Products", "Thumbnail", c => c.String());
-            AddColumn("dbo.Products", "CreateAt", c => c.DateTime(nullable: true));
+            AddColumn("dbo.Products", "CreatedAt", c => c.DateTime(nullable: true));
             AddColumn("dbo.Products", "UpdateAt", c => c.DateTime(nullable: true));
             AddColumn("dbo.Products", "DeleteAt", c => c.DateTime(nullable: true));
             AddColumn("dbo.Products", "InStock", c => c.Int(nullable: false));
@@ -21,7 +21,7 @@ namespace T1809E.SEM3.P102_Team05.Migrations
             DropColumn("dbo.Products", "InStock");
             DropColumn("dbo.Products", "DeleteAt");
             DropColumn("dbo.Products", "UpdateAt");
-            DropColumn("dbo.Products", "CreateAt");
+            DropColumn("dbo.Products", "CreatedAt");
             DropColumn("dbo.Products", "Thumbnail");
         }
     }

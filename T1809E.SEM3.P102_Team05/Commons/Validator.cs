@@ -7,14 +7,13 @@ namespace T1809E.SEM3.P102_Team05.Commons
 {
     public class Validator
     {
-      public void ValidatePageArgs(string keyword, string sortType, string sortBy, int pageNumber, int pageSize)
+      public static bool ValidatePageArgs(string keyword, string sortType, string sortBy, int pageNumber, int pageSize)
       {
         if (!string.IsNullOrEmpty(sortType))
         {
           if (!sortType.Equals("asc") && !sortType.Equals("desc"))
           {
-            throw new ArgumentException("sortType invalid!");
-
+            return false;
           }
         }
 
@@ -22,14 +21,16 @@ namespace T1809E.SEM3.P102_Team05.Commons
         {
           if (!sortBy.Equals("name") && !sortBy.Equals("price") && !sortBy.Equals("createdDate"))
           {
-            throw new ArgumentException("sortBy invalid!");
+            return false;
           }
         }
 
         else if (pageSize <= 0 || pageNumber <= 0)
         {
-          throw new ArgumentException("pageSize or pageNumber invalid!");
+          return false;
         }
+
+        return true;
       }
 
     }

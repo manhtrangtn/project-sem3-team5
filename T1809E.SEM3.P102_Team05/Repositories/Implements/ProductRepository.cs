@@ -29,8 +29,8 @@ namespace T1809E.SEM3.P102_Team05.Repositories
                 case "Price":
                     resetSet = isAscending ? resetSet.OrderBy(x => x.Price).AsQueryable() : resetSet.OrderByDescending(x => x.Price).AsQueryable();
                     break;
-                case "CreateAt":
-                    resetSet = isAscending ? resetSet.OrderBy(x => x.CreateAt).AsQueryable() : resetSet.OrderByDescending(x => x.CreateAt).AsQueryable();
+                case "CreatedAt":
+                    resetSet = isAscending ? resetSet.OrderBy(x => x.CreatedAt).AsQueryable() : resetSet.OrderByDescending(x => x.CreatedAt).AsQueryable();
                     break;
                 default:
                   break;

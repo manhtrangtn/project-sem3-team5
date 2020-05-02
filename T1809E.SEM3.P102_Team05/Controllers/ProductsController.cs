@@ -36,7 +36,7 @@ namespace T1809E.SEM3.P102_Team05.Controllers
         // GET: api/Products
         public IHttpActionResult GetProducts(string keyword, string sortType, string sortBy, int? pageNumber, int? pageSize)
         {
-          var requireModel = new RequireModelGetAll()
+          var requireModel = new RequestModel()
           {
             keyword = keyword,
             sortType = sortType.Equals("desc") ? "desc" : "asc",
@@ -46,9 +46,8 @@ namespace T1809E.SEM3.P102_Team05.Controllers
           };
           int totalItems = productService.GetTotalItem(keyword);
           var products = productService.GetListWithSearchAndPaging(requireModel.keyword, requireModel.sortType, requireModel.sortBy, requireModel.pageNumber, requireModel.pageSize) as IQueryable<Product>;
-          var reponseModel = new ProductReponseModel()
-          {
-            Products = products,
+          var reponseModel = new ResponseModel<Product> {
+            Items = products,
             TotalItems = totalItems
           };
           return Ok(reponseModel);
@@ -112,7 +111,7 @@ namespace T1809E.SEM3.P102_Team05.Controllers
             {
                 return BadRequest(ModelState);
             }
-            product.CreateAt = DateTime.Now;
+            product.CreatedAt = DateTime.Now;
             productService.Add(product);
             await db.SaveChangesAsync();
 

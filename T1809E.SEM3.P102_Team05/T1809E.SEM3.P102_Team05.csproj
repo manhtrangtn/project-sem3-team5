@@ -86,6 +86,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -138,6 +141,7 @@
     <Compile Include="Commons\Constant.cs" />
     <Compile Include="Commons\Validator.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Data\AppDatabaseContext.cs" />
@@ -152,17 +156,26 @@
     <Compile Include="Migrations\202004271707312_ModifiedProduct.Designer.cs">
       <DependentUpon>202004271707312_ModifiedProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005011603570_NewEntities.cs" />
+    <Compile Include="Migrations\202005011603570_NewEntities.Designer.cs">
+      <DependentUpon>202005011603570_NewEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005011639176_UpdateEntities.cs" />
+    <Compile Include="Migrations\202005011639176_UpdateEntities.Designer.cs">
+      <DependentUpon>202005011639176_UpdateEntities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\ModelRequires\Image.cs" />
-    <Compile Include="Models\ModelRequires\ProductReponseModel.cs" />
-    <Compile Include="Models\ModelRequires\requireModelGetAll.cs" />
+    <Compile Include="Models\ModelRequires\ResponseModel.cs" />
+    <Compile Include="Models\ModelRequires\RequestModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ICommonRepository.cs" />
+    <Compile Include="Repositories\Implements\OrderRepository.cs" />
     <Compile Include="Repositories\Implements\ProductRepository.cs" />
     <Compile Include="Repositories\Implements\CommonRepository.cs" />
     <Compile Include="Services\IAccountService.cs" />
@@ -193,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004271707312_ModifiedProduct.resx">
       <DependentUpon>202004271707312_ModifiedProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011603570_NewEntities.resx">
+      <DependentUpon>202005011603570_NewEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011639176_UpdateEntities.resx">
+      <DependentUpon>202005011639176_UpdateEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
