@@ -17,6 +17,7 @@ namespace T1809E.SEM3.P102_Team05.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public DateTime? DeleteAt { get; set; }
+        public int InStock { get; set; }
         public ProductStatus Status { get; set; }
 
     }
