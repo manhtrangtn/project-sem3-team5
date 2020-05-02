@@ -5,7 +5,7 @@ using System.Web;
 
 namespace T1809E.SEM3.P102_Team05.Models.ModelRequires
 {
-    public class RequireModelGetAll
+    public class RequestModel
     {
         //string keyword, string sortType, string sortBy, int pageNumber, int pageSize
         public string keyword { get; set; }

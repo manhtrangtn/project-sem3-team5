@@ -62,7 +62,7 @@ namespace T1809E.SEM3.P102_Team05.Services.Implements
 
           isAscending = sortType.Equals("asc") ? true : false;
 
-          columnName = sortBy.Equals("name") ? "Name" : sortBy.Equals("price") ? "Price" : "CreateAt";
+          columnName = sortBy.Equals("name") ? "Name" : sortBy.Equals("price") ? "Price" : "CreatedAt";
 
           if (string.IsNullOrEmpty(keyword))
           {

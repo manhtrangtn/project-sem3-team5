@@ -10,19 +10,23 @@ namespace T1809E.SEM3.P102_Team05.Models
     {
         [Key]
         public int OrderId { get; set; }
-        public int CustomerID { get; set; }
+        public int CustomerId { get; set; }
         public double OrderNumber { get; set; }
         public string ShippingAddress { get; set; }
         public double Total { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public DateTime DeletedAt { get; set; }
-        public OrderStatus1 Status { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
+        public OrderStatus Status { get; set; }
+        public IQueryable<OrderDetail> OrderDetails { get; set; }
     }
-    public enum OrderStatus1
+    public enum OrderStatus
     {
-        ACTIVE = 0,
-        DISABLE = 1,
-        DELETED = -1
+      UNPAID,
+      CANCELED,
+      DELETED,
+      DONE,
+      PAID,
+      SHIPPING
     }
 }
