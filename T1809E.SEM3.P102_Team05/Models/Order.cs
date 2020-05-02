@@ -19,6 +19,17 @@ namespace T1809E.SEM3.P102_Team05.Models
         public DateTime? DeletedAt { get; set; }
         public OrderStatus Status { get; set; }
         public IQueryable<OrderDetail> OrderDetails { get; set; }
+
+        public Order()
+        {
+          if (OrderDetails.Any())
+          {
+            foreach (var o in OrderDetails)
+            {
+              this.Total += o.Price * o.Quantity;
+            }
+          }
+        }
     }
     public enum OrderStatus
     {
